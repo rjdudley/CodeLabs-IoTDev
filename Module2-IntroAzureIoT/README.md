@@ -1,5 +1,5 @@
 ﻿<a name="HOLTop"></a>
-# Introduction to Azure IoT #
+# Introduction to Azure IoT (Simulated IoT Device)#
 
 ---
 

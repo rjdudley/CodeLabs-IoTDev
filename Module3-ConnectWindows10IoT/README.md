@@ -1,5 +1,5 @@
 ﻿<a name="HOLTop"></a>
-# Connecting Windows 10 IoT Core to Azure IoT #
+# Introduction to Azure IoT with Windows 10 IoT Core (Raspberry Pi 3) #
 
 ---
 
@@ -30,11 +30,10 @@ In this module, you'll see how to:
 
 The following is required to complete this module:
 
-- Attended the [Intro to Azure IoT](../Module2-IntroAzureIoT) module
 - (Ideally) Attended the [Intro to Windows 10 IoT Core](../Module1-IntroWindows10IoTCore) module
 - Windows 10 with [developer mode enabled][1]
 - [Visual Studio Community 2015][2] with [Update 1][3] or greater
-- [Windows IoT Core Project Templates][4]
+- [IoT Core Dashboard and Tools][4]
 - [Azure Device Explorer][7].
 - [Raspberry PI board with Windows IoT Core image][5]
 - [GHI FEZ HAT][6]
@@ -42,12 +41,12 @@ The following is required to complete this module:
 [1]: https://msdn.microsoft.com/library/windows/apps/xaml/dn706236.aspx
 [2]: https://www.visualstudio.com/products/visual-studio-community-vs
 [3]: http://go.microsoft.com/fwlink/?LinkID=691134
-[4]: https://visualstudiogallery.msdn.microsoft.com/55b357e1-a533-43ad-82a5-a88ac4b01dec
+[4]: http://ms-iot.github.io/content/en-US/GetStarted.htm
 [5]: https://ms-iot.github.io/content/en-US/win10/RPI.htm
 [6]: https://www.ghielectronics.com/catalog/product/500
 [7]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 
-> **Note:** You can take advantage of the [Visual Studio Dev Essentials]( https://www.visualstudio.com/en-us/products/visual-studio-dev-essentials-vs.aspx) subscription in order to get everything you need to build and deploy your app on any platform.
+> **Note:** The PCs at Build 2016 are pre-provisioned with all required software. You can take advantage of the [Visual Studio Dev Essentials]( https://www.visualstudio.com/en-us/products/visual-studio-dev-essentials-vs.aspx) subscription in order to get everything you need to build and deploy your app on any platform.
 
 <a name="Setup"></a>
 ### Setup ###
