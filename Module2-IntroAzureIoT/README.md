@@ -6,9 +6,11 @@
 <a name="Overview"></a>
 ## Overview ##
 
-**Azure IoT Hub** is an Azure service that enables secure and reliable bi-directional communications between your application back end and millions of devices. It allows the application back end to receive telemetry at scale from your devices, route that data to a stream event processor, and also to send cloud-to-device commands to specific devices.
+**Azure IoT Hub** is an Azure service that enables secure and reliable bi-directional communications between your application back end and millions of devices. It allows the application back end to receive telemetry at scale from your devices, route that data to a stream event processor, and also to send cloud-to-device commands to specific devices. The bi-drectional communication is enabled through use of the AMQP protocol.
 
-In this module, you'll learn to connect devices to Microsoft Azure, and to implement great IoT solutions taking advantage of Microsoft Azure advanced analytic services such as Azure Stream Analytics.
+In this module, you'll learn to send data to Microsoft Azure, using a PC-based application simulating data, and to implement great IoT solutions taking advantage of Microsoft Azure advanced analytic services such as Azure Stream Analytics.
+
+> **Note:** The Raspberry Pi is not used in this Module. Everything is done throug the PC application. There is a third lab which uses the Raspberry Pi device
 
 
 <a name="Objectives"></a>
@@ -27,17 +29,11 @@ The following is required to complete this module:
 
 - Windows 10 with [developer mode enabled][1]
 - [Visual Studio Community 2015][2] with [Update 1][3] or greater
-- [Windows IoT Core Project Templates][4]
 - [Azure Device Explorer][7].
-- (Optional) [Raspberry PI board with Windows IoT Core image][5]
-- (Optional) [GHI FEZ HAT][6] (for exercises 3 and 4)
 
 [1]: https://msdn.microsoft.com/library/windows/apps/xaml/dn706236.aspx
 [2]: https://www.visualstudio.com/products/visual-studio-community-vs
 [3]: http://go.microsoft.com/fwlink/?LinkID=691134
-[4]: https://visualstudiogallery.msdn.microsoft.com/55b357e1-a533-43ad-82a5-a88ac4b01dec
-[5]: https://ms-iot.github.io/content/en-US/win10/RPI.htm
-[6]: https://www.ghielectronics.com/catalog/product/500
 [7]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 
 > **Note:** You can take advantage of the [Visual Studio Dev Essentials]( https://www.visualstudio.com/en-us/products/visual-studio-dev-essentials-vs.aspx) subscription in order to get everything you need to build and deploy your app on any platform.
@@ -57,7 +53,7 @@ In order to run the exercises in this module, you'll need to set up your environ
 
 Throughout the module document, you'll be instructed to insert code blocks. For your convenience, most of this code is provided as Visual Studio Code Snippets, which you can access from within Visual Studio 2015 to avoid having to add it manually.
 
->**Note**: Each exercise is accompanied by a starting solution located in the **Begin** folder of the exercise that allows you to follow each exercise independently of the others. Please be aware that the code snippets that are added during an exercise are missing from these starting solutions and may not work until you have completed the exercise. Inside the source code for an exercise, you'll also find an **End** folder containing a Visual Studio solution with the code that results from completing the steps in the corresponding exercise. You can use these solutions as guidance if you need additional help as you work through this module.
+> **Note**: Each exercise is accompanied by a starting solution located in the **Begin** folder of the exercise that allows you to follow each exercise independently of the others. Please be aware that the code snippets that are added during an exercise are missing from these starting solutions and may not work until you have completed the exercise. Inside the source code for an exercise, you'll also find an **End** folder containing a Visual Studio solution with the code that results from completing the steps in the corresponding exercise. You can use these solutions as guidance if you need additional help as you work through this module.
 
 ---
 
@@ -72,12 +68,12 @@ This module includes the following exercises:
 
 Estimated time to complete this module: **60 minutes**
 
->**Note:** When you first start Visual Studio, you must select one of the predefined settings collections. Each predefined collection is designed to match a particular development style and determines window layouts, editor behavior, IntelliSense code snippets, and dialog box options. The procedures in this module describe the actions necessary to accomplish a given task in Visual Studio when using the **General Development Settings** collection. If you choose a different settings collection for your development environment, there may be differences in the steps that you should take into account.
+> **Note:** When you first start Visual Studio, you must select one of the predefined settings collections. Each predefined collection is designed to match a particular development style and determines window layouts, editor behavior, IntelliSense code snippets, and dialog box options. The procedures in this module describe the actions necessary to accomplish a given task in Visual Studio when using the **General Development Settings** collection. If you choose a different settings collection for your development environment, there may be differences in the steps that you should take into account.
 
 <a name="Exercise1"></a>
 ### Exercise 1: Setting up the app to send data to Azure ###
 
-In this exercise, you'll prepare an Universal application to send telemetry data (temperature and light level) to Azure IoT Hub.
+In this exercise, you'll prepare an Universal application on the PC to send telemetry data (temperature and light level) to Azure IoT Hub.
 
 <a name="Ex1Task1"></a>
 #### Task 1 - Creating an IoT Hub ####
@@ -122,7 +118,7 @@ You must register your device in order to be able to send and receive informatio
 
 	_Configure Device Explore_
 
-1. Go to the **Management** tab and click **Create**. The Create Device popup will be displayed. Fill the **Device ID** field with a new Id for your device (_myRaspberryDevice_ for example) and click **Create**:
+1. Go to the **Management** tab and click **Create**. The Create Device popup will be displayed. Fill the **Device ID** field with a new Id for your device (_mySimulatedDevice_ for example) and click **Create**:
 
 	![Creating a Device Identity](Images/creating-a-device-identity.png?raw=true "Creating a Device Identity")
 
@@ -140,9 +136,7 @@ You must register your device in order to be able to send and receive informatio
 <a name="Ex1Task4"></a>
 #### Task 3 - Sending telemetry data to the Azure IoT hub ####
 
-Now that the device is configured, you'll see how to make an application read the values of the FEZ HAT sensors, and then send those values to an Azure IoT Hub.
-
-This task uses an existing Universal application that simulates the sensor values so you can run it locally. Alternatively, you can switch the **UseMockedSensors** flag to **false** and deploy the app to your Raspberry Pi device and use the real FEZ HAT sensors.
+Now that the device is configured, you'll see how to make an application that simulates the sensors, and then sends those values to an Azure IoT Hub.
 
 1. Open in Visual Studio the **IoTWorkshop.sln** solution located at **Source\Ex1\Begin** folder.
 
@@ -211,13 +205,11 @@ This task uses an existing Universal application that simulates the sensor value
 
 1. Press **F5** to run and debug the application.
 
-	The information being sent can be monitored using the Device Explorer application. Run the application and go to the **Data** tab and select the name of the device you want to monitor (_myRaspberryDevice_ in your case), then click on **Monitor**
+	The information being sent can be monitored using the Device Explorer application. Run the application and go to the **Data** tab and select the name of the device you want to monitor (_mySimulatedDevice_ in your case), then click on **Monitor**
 
 	![Monitoring messages sent](Images/monitoring-messages-sent.png?raw=true "Monitoring messages sent")
 
 	_Monitoring messages sent_
-
-    Additionally, you can change the **UseMockedSensors** constant value to **false** and deploy the app to a Raspberry Pi device with the FEZ HAT to use real sensors.
 
 <a name="Exercise2"></a>
 ### Exercise 2: Using Stream Analytics to process the data ###
@@ -246,7 +238,7 @@ In this task, you'll create a new Consumer Group that will be used by a Stream A
 
 <a name="Ex2Task2"></a>
 #### Task 2 - Creating a Stream Analytics Job ####
-Before the information can be consumed (for instance using **Power BI**), it must be processed by a **Stream Analytics Job**. To do so, an input for that job must be provided. As the Raspberry devices are sending information to an IoT Hub, we'll use these as the input for the job.
+Before the information can be consumed (for instance using **Power BI**), it must be processed by a **Stream Analytics Job**. To do so, an input for that job must be provided. As the simulated devices are sending information to an IoT Hub, we'll use these as the input for the job.
 
 > **Note:** You will create the Stream Analytics job using the [classic Azure Portal](https://manage.windowsazure.com) since the _Power BI_ sink for Stream Analytics output is not available in the new Azure Portal yet.
 
@@ -301,7 +293,7 @@ The output of the Stream Analytics job will be **Power BI**.
 1. In this screen you will enter the following information:
 
 	- **Output alias**: PowerBI
-	- **Dataset Name**: Raspberry
+	- **Dataset Name**: Simulated
 	- **Table Name**: Telemetry
 	- **Workspace**: My Workspace
 
@@ -373,7 +365,7 @@ After some minutes of the job running, you'll see that the dataset that you conf
 
 	> **Note:** The Power BI dataset will only be created if the job is running and if it is receiving data from the IoT Hub input, so check that the Universal App is running and sending data to Azure to ensure that the dataset be created.
 
-1. Once the datasource becomes available you can start creating reports. To create a new Report click on the **Raspberry** datasource:
+1. Once the datasource becomes available you can start creating reports. To create a new Report click on the **Simulated** datasource:
 
 	![Power BI: Report Designer](Images/power-bi-report-designer.png?raw=true "Power BI: Report Designer")
 
@@ -411,7 +403,7 @@ In this task, you'll create a new Dashboard, and pin the _Light by Time_ report 
 
 1. Click the plus sign (+) next to the **Dashboards** section to create a new dashboard.
 
-1. Set _Raspberry Telemetry_ as the **Title** and press Enter.
+1. Set _Simulated Telemetry_ as the **Title** and press Enter.
 
 1. Go back to your report, and click the pin icon to add the report to the recently created dashboard.
 
@@ -423,7 +415,7 @@ In this task, you'll create a new Dashboard, and pin the _Light by Time_ report 
 #### Task 3 - Creating a Temperature report ####
 In this task, you'll create a second chart with the information of the average Temperature.
 
-1. Click the **Raspberry** datasource to create a new report.
+1. Click the **Simulated** datasource to create a new report.
 
 1. Select the **avgvalue** field
 
