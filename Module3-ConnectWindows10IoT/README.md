@@ -12,6 +12,8 @@
 
 In this module you will use a Raspberry PI device with [Windows 10 Iot Core](http://ms-iot.github.io/content/en-US/Downloads.htm) and a [FEZ HAT](https://www.ghielectronics.com/catalog/product/500) sensor hat. Using a Windows 10 Universal Application, the sensors get the raw data and format it into a JSON string. That string is then shuttled off to the [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/), where it gathers the data and is then displayed in an Azure website. Finally, you'll see how to send cloud-to-device messages to your device to command it.
 
+> **Note:** If you do not want to use the Rapsberry Pi, Module 2 is this same lab, but using simulated data on a Windows 10 UWP app on the PC.
+
 
 <a name="Objectives"></a>
 ### Objectives ###
