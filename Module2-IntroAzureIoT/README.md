@@ -10,7 +10,7 @@
 
 In this module, you'll learn to send data to Microsoft Azure, using a PC-based application simulating data, and to implement great IoT solutions taking advantage of Microsoft Azure advanced analytic services such as Azure Stream Analytics.
 
-> **Note:** The Raspberry Pi is not used in this Module. Everything is done throug the PC application. There is a third lab which uses the Raspberry Pi device
+> **Note:** The Raspberry Pi is not used in this Module. Everything is done throug the PC application. Lab 3 is an equivalent lab which uses the Raspberry Pi.
 
 
 <a name="Objectives"></a>
@@ -110,7 +110,7 @@ In this task, you'll create an IoT Hub for communicating with your device (the d
 <a name="Ex1Task2"></a>
 #### Task 2 - Registering your device ####
 
-You must register your device in order to be able to send and receive information from the Azure IoT Hub. This is done by registering a [Device Identity](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/#device-identity-registry) in the IoT Hub.
+You must register your simulated device in order to be able to send and receive information from the Azure IoT Hub. This is done by registering a [Device Identity](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/#device-identity-registry) in the IoT Hub.
 
 1. Open the Device Explorer app (C:\Program Files (x86)\Microsoft\DeviceExplorer\DeviceExplorer.exe), and fill the **IoT Hub Connection String** field with the connection string of the IoT Hub you created in previous steps, and click **Update**.
 
@@ -136,7 +136,7 @@ You must register your device in order to be able to send and receive informatio
 <a name="Ex1Task4"></a>
 #### Task 3 - Sending telemetry data to the Azure IoT hub ####
 
-Now that the device is configured, you'll see how to make an application that simulates the sensors, and then sends those values to an Azure IoT Hub.
+Now that the simulated device is configured, you'll see how to make an application that simulates the sensors, and then sends those values to an Azure IoT Hub.
 
 1. Open in Visual Studio the **IoTWorkshop.sln** solution located at **Source\Ex1\Begin** folder.
 
