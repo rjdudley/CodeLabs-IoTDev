@@ -539,8 +539,8 @@ In this task, you'll add logic to process the messages received from the IoT Hub
 
 By completing this module, you should have:
 
-- Learnt how to connect and configure a **Raspberry Pi** device with **Windows 10 IoT Core**.
-- Learnt how to create an Azure IoT hub and configure a device app to connect to the hub.
+- Learned how to connect and configure a **Raspberry Pi** device with **Windows 10 IoT Core**.
+- Learned how to create an Azure IoT hub and configure a device app to connect to the hub.
 - Created a **Windows Universal Platform** app and deployed to a remote Windows IoT device that sends telemetry messages to Azure IoT Hub.
 - Programmed the input (buttons) and output (LEDs) of a GHI's FEZ HAT topping connected to the Raspberry Pi.
 - Read the temperature and light sensors and set the RGB LEDs colors from the FEZ HAT.
