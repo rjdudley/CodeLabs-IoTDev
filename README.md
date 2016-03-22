@@ -4,7 +4,7 @@
 
 This is an introduction to Windows 10 IoT Core on the Raspberry Pi 3.
 
-[View Module](Module1-IntroWindows10IoTCore/)
+[Module 2](Module1-IntroWindows10IoTCore/)
 
 ## Module 2 and Module 3
 
@@ -17,4 +17,4 @@ These two labs introduce Microsoft Azure IoT features, including IoT Hub. Module
 
 This is an open hack which runs concurrently with other labs. We have a ton of devices in the room, as well as reference material for most of them.
 
-[View Module](Module4-OpenHack/)
+[Module 4](Module4-OpenHack/)
