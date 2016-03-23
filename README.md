@@ -11,6 +11,7 @@ This is an introduction to Windows 10 IoT Core on the Raspberry Pi 3.
 These two labs introduce Microsoft Azure IoT features, including IoT Hub. Module 2 does not require any device. Module 3 uses a Raspberry Pi 3 and a GHI FEZ HAT. Other than client hardware, the two labs cover the same material.
 
 [Module 2 - No Device](Module2-IntroAzureIoT-NoDevice/)
+
 [Module 3 - Rsaspberry Pi 3](Module1-IntroAzureIoT-WindowsIoTCore/)
 
 ## Module 4
