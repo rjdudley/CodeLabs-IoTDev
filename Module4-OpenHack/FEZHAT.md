@@ -17,14 +17,21 @@ The FEZ HAT driver code exposes all of those interfaces and devices in a C#/VB-f
 More information about the FEZ HAT 
 
   * [GHI FEZ HAT Details](http://www.ghielectronics.com/catalog/product/500)
+  * [GHI FEZ HAT Driver on NuGet](https://www.nuget.org/packages/GHIElectronics.UWP.Shields.FEZHAT/)
+  * [GHI FEZ HAT Developers' Guide](https://www.ghielectronics.com/docs/329/fez-hat-developers-guide)
 
 <a href="#HOLTop"> -- Back to Top -- </a>
 
 ## Using servos with the FEZ HAT
 
-The micro servos in the room work on 4.5 to 6v. The FEZ HAT has two connectors for servos. The V+ power comes from the motor voltage connector on the 10 pin screw terminal. You may connect this to the positive connector on the battery pack (connect negative to ground). We do not recommend connecting directly to the +5v connection because these servos can draw almost an amp at full range.
+The micro servos in the room work on 4.5 to 6v. The FEZ HAT has two connectors for servos. The V+ power comes from the motor voltage connector on the 10 pin screw terminal. You may connect this to the positive connector on the battery pack (connect negative to ground). We do not recommend connecting directly to the +5v connection because these servos can draw almost an amp at full range, and the Pi power supplies are not designed for this use.
 
-TODO: Example using the HAT
+
+Warning: There is a possibility that the solder joint for the motor control terminal blocks could create a short by touching the HDMI connector on the Raspberry Pi. To prevent this, simply use a stand-off to support the FEZ HAT and to prevent any contact between the terminal block and the HDMI connector, please see image below.
+
+In the Build lab, there is a standoff applied, but with sufficient pressure, you could still make contact between the terminal and HDMI connector. Please pay attention to this.
+
+![](https://www.ghielectronics.com/downloads/marketing/hat_warning.jpg)
 
 <a href="#HOLTop"> -- Back to Top -- </a>
 

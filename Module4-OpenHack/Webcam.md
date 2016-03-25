@@ -24,6 +24,7 @@ Project Oxford is based on REST calls. However, there are API projections for a 
 Tips:
 Before you can use Oxford for face recognition, you need to train it under your key (the key you acquired when signing up). You'll first create a person group, then add people to the group, and then upload photos of those people. this is best done interactively in an application on the PC. We suggest using the PC webcam to take various photos of you (or the target person) with and without glasses if you wear them, at slightly different angles, etc. Submit each one individually. You'll likely want to do the training from a regular interactive desktop app just to make it easy. Here's an example of three people I added.
 
+    ````C#
     // This is called only one time
     await _faceServiceClient.CreatePersonGroupAsync(personGroupId, "Targets");
 
@@ -36,6 +37,7 @@ Before you can use Oxford for face recognition, you need to train it under your 
     System.Diagnostics.Debug.WriteLine("Pete Id: " + pete.PersonId);
     System.Diagnostics.Debug.WriteLine("Tony Id: " + tony.PersonId);
     System.Diagnostics.Debug.WriteLine("Mat Id: " + mat.PersonId);
+    ````
 
 <a href="#HOLTop"> -- Back to Top -- </a>
 
@@ -43,6 +45,7 @@ Keep in mind that Project Oxford free accounts are rate-limited, so you'll need 
 
 Here's the code to upload a file for training. The code to get the image from a camera is very similar once you have a stream of data. Note the .AsStreamForRead() call. This extension method is key for converting between UWP and .NET streams.
 
+    ````C#
     // SubscriptionKey is your own personal key
     private readonly IFaceServiceClient _faceServiceClient = new FaceServiceClient(SubscriptionKey);
 
@@ -71,11 +74,13 @@ Here's the code to upload a file for training. The code to get the image from a 
             }
         }
     }
+    ````
 
 <a href="#HOLTop"> -- Back to Top -- </a>
 
 Face recognition happens by sending the API an image stream, letting Project Oxford process it, and then return back a list of faces along with recognition confidence levels.
 
+    ````C#
     // "Enemy" because I was using this code to launch foam missiles when the face is recognized
     private Guid EnemyId = Guid.Parse(MatId.ToString());
 
@@ -116,10 +121,12 @@ Face recognition happens by sending the API an image stream, letting Project Oxf
 
         return false;
     }
+    ````
 
 
 More information
 
   * [Microsoft Project Oxford Site](https://www.projectoxford.ai/)
+  * [Microsoft Project Oxford SDKs] (https://www.projectoxford.ai/sdk)
 
 <a href="#HOLTop"> -- Back to Top -- </a>
