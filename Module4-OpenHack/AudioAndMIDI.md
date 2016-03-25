@@ -10,15 +10,15 @@ As fun as it is, try not to create projects which are disruptive to others in th
 
 Example MIDI message transmission
 
-    ````C#
+	````C#
     var message = new MidiControlChangeMessage(Channel, Controller, Value);
 
     _outputPort.SendMessage(message);
-    ````
+	````
 
 Example of handling an incoming MIDI message
 
-    ````C#
+	````C#
     private void OnMidiMessageReceived(MidiInPort sender, MidiMessageReceivedEventArgs args)
     {
         switch (args.Message.Type)
@@ -64,13 +64,13 @@ Example of handling an incoming MIDI message
                 break;
         }
     }
-    ````
+	````
 
 <a href="#HOLTop"> -- Back to Top -- </a>
 
 Example audio sample file playback
 
-    ````C#
+	````
     public sealed partial class MainPage : Page
     {
         const int numSamples = 9;
@@ -201,7 +201,7 @@ Example audio sample file playback
 
         ...
     }
-    ````
+	````
 
 <a href="#HOLTop"> -- Back to Top -- </a>
 

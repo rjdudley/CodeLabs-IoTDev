@@ -91,7 +91,7 @@ In this exercise, you'll configure your Raspberry Pi board by connecting through
 
 In this task, you'll connect to your device and update its name through the web interface.
 
-    > **Note:** For the Build 2016 labs, the device name and WiFi setup was likely completed before you started this lab. Please follow the steps below to verify and update as necessary. 
+> **Note:** For the Build 2016 labs, the device name and WiFi setup was likely completed before you started this lab. Please follow the steps below to verify and update as necessary. 
 
 1. Launch the **Windows 10 IoT Core Dashboard**, go to **My devices** and click the **Open in Device Portal** icon of your device name. If you can't find your device, either your PC or your board is not properly connected to your network.
 
@@ -99,7 +99,7 @@ In this task, you'll connect to your device and update its name through the web 
 
 	_Windows 10 IoT Core Dashboard_
 
-	> **Note:** You can also launch the _Device Portal_ by browsing the _IP address_ and adding **:8080**.
+> **Note:** You can also launch the _Device Portal_ by browsing the _IP address_ and adding **:8080**.
 
 
 1. In the credentials dialog, use the default username and password. Username: _Administrator_ Password: _p@ssw0rd_
@@ -120,14 +120,14 @@ In this task, you'll connect to your device and update its name through the web 
 
 	_Change your device name_
 
-	> **Note:** Additionally, you can change the default password to a new one.
+> **Note:** Additionally, you can change the default password to a new one.
 
 <a name="Ex1Task2"></a>
 #### Task 2 - Using the web interface to configure WiFi  ####
 
 In this task, you'll use the Device Portal to connect to a WiFi network.
 
-    > **Note:** For the Build 2016 labs, the device name and WiFi setup was likely completed before you started this lab. Please follow the steps below to verify and update as necessary. 
+> **Note:** For the Build 2016 labs, the device name and WiFi setup was likely completed before you started this lab. Please follow the steps below to verify and update as necessary. 
 
 1. Click **Networking** in the left-hand pane.
 
