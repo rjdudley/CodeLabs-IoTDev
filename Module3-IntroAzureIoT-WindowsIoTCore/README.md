@@ -10,7 +10,7 @@
 
 **Windows 10 IoT Core** is a version of **Windows 10** that is optimized for smaller devices with or without a display, and that runs on the **Raspberry Pi, Arrow DragonBoard & MinnowBoard MAX**. **Windows 10 IoT Core** utilizes the rich, extensible [Universal Windows Platform (UWP)](https://msdn.microsoft.com/library/windows/apps/dn726767.aspx) API for building great solutions.
 
-In this module you will use a Raspberry PI device with [Windows 10 Iot Core](http://ms-iot.github.io/content/en-US/Downloads.htm) and a [FEZ HAT](https://www.ghielectronics.com/catalog/product/500) sensor hat. Using a Windows 10 Universal Application, the sensors get the raw data and format it into a JSON string. That string is then shuttled off to the [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/), where it gathers the data and is then displayed in an Azure website. Finally, you'll see how to send cloud-to-device messages to your device to command it.
+In this module you will use a Raspberry Pi device with [Windows 10 Iot Core](http://ms-iot.github.io/content/en-US/Downloads.htm) and a [FEZ HAT](https://www.ghielectronics.com/catalog/product/500) sensor hat. Using a Windows 10 Universal Application, the sensors get the raw data and format it into a JSON string. That string is then shuttled off to the [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/), where it gathers the data and is then displayed in an Azure website. Finally, you'll see how to send cloud-to-device messages to your device to command it.
 
 > **Note:** If you do not want to use the Rapsberry Pi, Module 2 is this same lab, but using simulated data on a Windows 10 UWP app on the PC.
 
@@ -19,7 +19,7 @@ In this module you will use a Raspberry PI device with [Windows 10 Iot Core](htt
 ### Objectives ###
 In this module, you'll see how to:
 
-- Create a Universal app that reads sensor information from a Raspberry PI running Windows 10 IoT Core
+- Create a Universal app that reads sensor information from a Raspberry Pi running Windows 10 IoT Core
 - Upload those readings to an Azure IoT Hub
 - Display the the IoT Hub information in a website
 - Command your device based on IoT Hub Cloud-To-Device messages
@@ -35,7 +35,7 @@ The following is required to complete this module:
 - [Visual Studio Community 2015][2] with [Update 1][3] or greater
 - [IoT Core Dashboard and Tools][4]
 - [Azure Device Explorer][7].
-- [Raspberry PI board with Windows IoT Core image][5]
+- [Raspberry Pi board with Windows IoT Core image][5]
 - [GHI FEZ HAT][6]
 
 [1]: https://msdn.microsoft.com/library/windows/apps/xaml/dn706236.aspx
@@ -83,7 +83,7 @@ Estimated time to complete this module: **60 minutes**
 <a name="Exercise1"></a>
 ### Exercise 1: Connecting and configuring your device ###
 
-In this exercise, you'll setup your Raspberry PI and GHI FEZ HAT devices.
+In this exercise, you'll setup your Raspberry Pi and GHI FEZ HAT devices.
 
 <a name="Ex1Task1"></a>
 #### Task 1 - Setting up your Devices ####
@@ -163,7 +163,7 @@ In this task, you'll use the Device Portal to connect to a WiFi network.
 <a name="Exercise2"></a>
 ### Exercise 2: Sending telemetry data to Azure IoT Hub ###
 
-In this exercise, you'll create an Azure IoT Hub to provide reliable and secure bi-directional communications between your IoT device and a Univerdal app.
+In this exercise, you'll create an Azure IoT Hub to provide reliable and secure bi-directional communications between your IoT device and a Universal app.
 
 <a name="Ex2Task1"></a>
 #### Task 1 - Creating an IoT Hub ####
@@ -175,7 +175,7 @@ In this task, you'll create an IoT Hub for communicating with your device.
 
 1. Configure the **IoT hub** with the desired information:
 
- - Enter a **Name** for the hub e.g. _iot-workshop_,
+ - Enter a **Name** for the hub e.g. _iot-workshop_ (note that this should be a globally unique name of your own choosing),
  - Select a **Pricing and scale tier** (_F1 Free_ tier is enough),
  - Create a new resource group, or select and existing one. For more information, see [Using resource groups to manage your Azure resources](https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/).
  - Select the **Region** _West US_ for where the service will be located.
@@ -226,13 +226,13 @@ You must register your device in order to be able to send and receive informatio
 
 Now that the device is configured, you'll see how to make an application read the values of the FEZ HAT sensors, and then send those values to an Azure IoT Hub.
 
-This task uses an existing Universal application that will be deployed to your Raspberry PI device and use FEZ HAT sensors.
+This task uses an existing Universal application that will be deployed to your Raspberry Pi device and use FEZ HAT sensors.
 
 1. Open in Visual Studio the **IoTWorkshop.sln** solution located at **Source\Ex2\Begin** folder.
 
 1. In **Solution Explorer**, right-click the **IoTWorkshop** project, and then click **Manage NuGet Packages**.
 
-1. In the **NuGet Package Manager** window, search for **Microsoft Azure Devices**, click Install to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use.
+1. In the **NuGet Package Manager** window, click **Browse** and search for **Microsoft Azure Devices**, click **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use.
 
     This downloads, installs, and adds a reference to the [Microsoft Azure IoT Service](https://www.nuget.org/packages/Microsoft.Azure.Devices/) SDK NuGet package.
 
@@ -244,7 +244,7 @@ This task uses an existing Universal application that will be deployed to your R
 	using Microsoft.Azure.Devices.Client;
 	````
 
-1. Add the following field to the **MainPage** class, replace the placeholder value with the **device connection string** you've created in the previous task:
+1. Add the following field to the **MainPage** class, replace the placeholder value with the **device connection string** you've created in the previous task (note that the curly braces { } are _NOT_ part of the connection string and should be _removed_ when you paste in your connection string):
 
 	(Code Snippet - _AzureIoT - DeviceClientConn_)
 
@@ -313,11 +313,13 @@ This task uses an existing Universal application that will be deployed to your R
 
 1. Press **F5** to run and deploy the app to the device.
 
-	The information being sent can be monitored using the Device Explorer application. Run the application and go to the **Data** tab and select the name of the device you want to monitor (_myRaspberryDevice_ in your case), then click  **Monitor**
+	The information being sent can be monitored using the Device Explorer application. Run the application and go to the **Data** tab and select the name of the device you want to monitor (_myRaspberryDevice_ in your case), then click  **Monitor**.
 
 	![Monitoring messages sent](Images/monitoring-messages-sent.png?raw=true "Monitoring messages sent")
 
 	_Monitoring messages sent_
+
+    **Note**: If you navigate back to your IoT Hub blade in the Azure Portal, it may take a couple minutes before the message count is updated to reflect the device activity under **Usage**.
 
 <a name="Exercise3"></a>
 ### Exercise 3: Consuming the IoT Hub data from a Website ###
@@ -417,7 +419,7 @@ After you deploy the site, it's required that you enable **Web sockets**. To do 
 
 Azure IoT Hub is a service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. In this section you will see how to send cloud-to-device messages to your device to command it to change the color of one of the FEZ HAT leds, using the Device Explorer app as the back end.
 
-In this exercise, you'll add the logic to process the messages received from your Raspberry PI.
+In this exercise, you'll add the logic to process the messages received from your Raspberry Pi.
 
 <a name="Ex4Task1"></a>
 #### Task 1 - Processing IoT Hub received messages ####
