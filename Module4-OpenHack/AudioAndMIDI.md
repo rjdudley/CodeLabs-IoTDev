@@ -70,7 +70,7 @@ Example of handling an incoming MIDI message
 
 Example audio sample file playback
 
-	````
+	````C#
     public sealed partial class MainPage : Page
     {
         const int numSamples = 9;
