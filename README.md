@@ -12,7 +12,7 @@ These two labs introduce Microsoft Azure IoT features, including IoT Hub. Module
 
 [Module 2 - Azure IoT - No Device](Module2-IntroAzureIoT-NoDevice/)
 
-[Module 3 - Azure IoT - Windows 10 IoT Core with Raspberry Pi 3](Module1-IntroAzureIoT-WindowsIoTCore/)
+[Module 3 - Azure IoT - Windows 10 IoT Core with Raspberry Pi 3](Module3-IntroAzureIoT-WindowsIoTCore/)
 
 ## Module 4
 
