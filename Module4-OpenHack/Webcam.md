@@ -17,7 +17,7 @@ Additional information
 <a href="#HOLTop"> -- Back to Top -- </a>
 
 ## Using Project Oxford face recognition
-Project Oxford is based on REST calls. However, there are API projections for a number of languages including C#.
+Project Oxford's public-facing API is based on REST calls. However, there are friendly API projections for a number of languages including C#.
 
 ![](http://www.projectoxford.ai/images/bright/face/FaceDetection.png) ![](http://www.projectoxford.ai/images/bright/face/FaceIdentification.png)
 
@@ -52,12 +52,15 @@ Here's the code to upload a file for training. The code to get the image from a 
     // Code to add a single face photo to an existing person
     private async void AddPersonFace(Guid personId, string fileName)
     {
+        // image files are in the appx in this case, in the /Training folder 
         var uri = new Uri("ms-appx:///Training/" + fileName);
 
+        // open the file
         StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(uri);
-
+        
         using (IInputStream s = (IInputStream)await file.OpenReadAsync())
         {
+            // AsStreamForRead is the key for translating here
             using (var stream = s.AsStreamForRead())
             {
                 var result = await _faceServiceClient.AddPersonFaceAsync(PersonGroupId, personId, stream);
@@ -127,6 +130,6 @@ Face recognition happens by sending the API an image stream, letting Project Oxf
 More information
 
   * [Microsoft Project Oxford Site](https://www.projectoxford.ai/)
-  * [Microsoft Project Oxford SDKs] (https://www.projectoxford.ai/sdk)
+  * [Microsoft Project Oxford SDKs](https://www.projectoxford.ai/sdk)
 
 <a href="#HOLTop"> -- Back to Top -- </a>
