@@ -91,6 +91,8 @@ In this exercise, you'll configure your Raspberry Pi board by connecting through
 
 In this task, you'll connect to your device and update its name through the web interface.
 
+    > **Note:** For the Build 2016 labs, the device name and WiFi setup was likely completed before you started this lab. Please follow the steps below to verify and update as necessary. 
+
 1. Launch the **Windows 10 IoT Core Dashboard**, go to **My devices** and click the **Open in Device Portal** icon of your device name. If you can't find your device, either your PC or your board is not properly connected to your network.
 
 	![Windows 10 IoT Core Dashboard](Images/ex1task1-watcher.png?raw=true "Windows 10 IoT Core Dashboard")
@@ -125,6 +127,8 @@ In this task, you'll connect to your device and update its name through the web 
 
 In this task, you'll use the Device Portal to connect to a WiFi network.
 
+    > **Note:** For the Build 2016 labs, the device name and WiFi setup was likely completed before you started this lab. Please follow the steps below to verify and update as necessary. 
+
 1. Click **Networking** in the left-hand pane.
 
 	![Networking page](Images/ex1task2-device-portal-networking.png?raw=true "Networking page")
@@ -137,11 +141,14 @@ In this task, you'll use the Device Portal to connect to a WiFi network.
 
 	_Available networks_
 
+**TODO: Include credentials from the room setup at Build 2016**
+
 1. Click **Connect** to initiate the connection. If the device connects successfully, you'll see a checkmark next to this WiFi. Device will connect to this WiFi automatically on every startup.
 
 	![Connect to WiFi](Images/ex1task2-connect-wifi.png?raw=true "Connect to WiFi")
 
 	_Connect to WiFi_
+
 
 <a name="Exercise2"></a>
 ### Exercise 2: Create and deploy "Hello World" UWP ###
@@ -266,7 +273,7 @@ To do this, we'll create a new project.
                   Unchecked="ToggleLed_Unchecked" />
     ````
 
-1. Next, you need some code to light up the LED. However, before that, you'll need to add a reference to the IoT UWP extension library to get access to the **Windows.Devices.Gpio** namespace. As before, use the **Project - Add Reference menu** to add the extension. Be sure to check it in the dialog, not just select it. If you have more than one version listed, select the one with the highest number. In a real application, you'll want to keep this in sync with the version of Windows on the device so that you have access to all of the latest features.
+1. Next, you need some code to light up the LED. However, before that, you'll need to add a reference to the IoT UWP extension library to get access to the **Windows.Devices.Gpio** namespace. As before, use the **Project - Add Reference menu** to add the extension. Be sure to check it in the dialog, not just select it. If you have more than one version listed, select the one with the highest number. In a real application, you'll want to keep this in sync with the version of Windows on the device so that you have access to all of the latest features. For Build 2016, **this is the 10586 version.**
 
 ![Add IoT Extension SDK](Images/add-iot-extension.png)
 
