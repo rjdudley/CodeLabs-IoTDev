@@ -8,7 +8,7 @@ Windows Remote Arduino is also an opportunity to play with "big brain / little b
 
 Example using a Bluetooth-connected Arduino
 
-    ````C#
+	````C#
     private RemoteDevice arduino;
     private BluetoothSerial bluetooth;
  
@@ -51,7 +51,7 @@ Example using a Bluetooth-connected Arduino
             await Task.Delay(DELAY_MILLIS);
         }
     }
-    ````
+	````
 
 For more information on how to use Windows Remote Arduino, please see these links:
 

@@ -8,7 +8,7 @@ In the room, we also have high amperage 5v power supplies for use with the HAT. 
 
 Example code
 
-    ````C#
+	````C#
     //The servoMin/servoMax values are dependant on the hardware you are using.
     //The values below are for my SR-4303R continuous rotating servos.
     //If you are working with a non-continous rotatng server, it will have an explicit
@@ -31,7 +31,7 @@ Example code
             Task.Delay(TimeSpan.FromSeconds(1)).Wait();
         }
     }
-    ````
+	````
 
 Servo HAT Product Information and code
 
