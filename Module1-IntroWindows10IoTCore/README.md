@@ -58,9 +58,9 @@ In order to run the exercises in this module, you'll need to set up your environ
 <a name="CodeSnippets"></a>
 ### Using the Code Snippets ###
 
-Throughout the module document, you'll be instructed to insert code blocks. For your convenience, most of this code is provided as Visual Studio Code Snippets, which you can access from within Visual Studio 2015 to avoid having to add it manually.
+Throughout the module document, you'll be instructed to insert code blocks. For your convenience, some of this code is provided as Visual Studio Code Snippets, which you can access from within Visual Studio 2015 to avoid having to add it manually.
 
-> **Note**: Each exercise is accompanied by a starting solution located in the **Begin** folder of the exercise that allows you to follow each exercise independently of the others. Please be aware that the code snippets that are added during an exercise are missing from these starting solutions and may not work until you've completed the exercise. Inside the source code for an exercise, you'll also find an **End** folder containing a Visual Studio solution with the code that results from completing the steps in the corresponding exercise. You can use these solutions as guidance if you need additional help as you work through this module.
+> **Note**: Most Exercises are accompanied by a starting solution located in the **Begin** folder of the exercise that allows you to follow each exercise independently of the others. Please be aware that the code snippets that are added during an exercise are missing from these starting solutions and may not work until you've completed the exercise. Inside the source code for an exercise, you'll also find an **End** folder containing a Visual Studio solution with the code that results from completing the steps in the corresponding exercise. You can use these solutions as guidance if you need additional help as you work through this module.
 
 ---
 
@@ -80,9 +80,9 @@ Estimated time to complete this module: **60 minutes**
 <a name="Exercise1"></a>
 ### Exercise 1: Connecting and configuring your device ###
 
-The Raspberry Pi will be connected to the development PC through a wired Ethernet connection. This connection is used for deployment and debugging. The WiFi connection will be used for connecting the Raspberry Pi to the Internet.
+The Raspberry Pi will be connected to the development PC through a wired Ethernet connection. This connection is used for deployment and debugging. The WiFi connection will be used for connecting the Raspberry Pi to the Internet. As a result, the Pi will have two IP Addresses. **The address to use for deploying and for otherwise accessing the Pi from your PC is the Wired Ethernet address, not the IoT-Lab WiFi address.**
 
-The **Windows Device Portal** provides basic configuration and device management capabilities, in addition to advanced diagnostic tools to help you troubleshoot and view the real time performance of your Windows IoT Device.
+The **Windows Device Portal** provides basic configuration and device management capabilities, in addition to advanced diagnostic tools to help you troubleshoot and view the real time performance of your Windows IoT Device. **In the IoT Labs at Build, the device explorer shows the WiFi address for the Pi, and so you will not use it directly to configure the device.**
 
 In this exercise, you'll configure your Raspberry Pi board by connecting through the **Windows Device Portal** to set a new name and configure WiFi connectivity.
 
@@ -127,7 +127,7 @@ In this task, you'll connect to your device and update its name through the web 
 
 In this task, you'll use the Device Portal to connect to a WiFi network.
 
-> **Note:** For the Build 2016 labs, the device name and WiFi setup was likely completed before you started this lab. Please follow the steps below to verify and update as necessary. 
+> **Note:** For the Build 2016 labs, the device name and WiFi setup was completed before you started this lab. Please follow the steps below to verify and update as necessary. 
 
 1. Click **Networking** in the left-hand pane.
 
@@ -141,7 +141,9 @@ In this task, you'll use the Device Portal to connect to a WiFi network.
 
 	_Available networks_
 
-**TODO: Include credentials from the room setup at Build 2016**
+        Build Lab Info:
+        SSID: IoT-Lab
+        Key: Windows10-IoT!
 
 1. Click **Connect** to initiate the connection. If the device connects successfully, you'll see a checkmark next to this WiFi. Device will connect to this WiFi automatically on every startup.
 
@@ -290,11 +292,6 @@ To do this, we'll create a new project.
     {
         this.InitializeComponent();
 
-        Loaded += MainPage_Loaded;
-    }
-
-    private void MainPage_Loaded(object sender, RoutedEventArgs e)
-    {
         InitializeGpio();
     }
 
