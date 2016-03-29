@@ -91,15 +91,15 @@ In this exercise, you'll configure your Raspberry Pi board by connecting through
 
 In this task, you'll connect to your device and update its name through the web interface.
 
-> **Note:** For the Build 2016 labs, the device name and WiFi setup was likely completed before you started this lab. Please follow the steps below to verify and update as necessary. 
+> **Note:** For the Build 2016 labs, the device name and WiFi setup was completed before you started this lab. Please follow the steps below to verify and update as necessary. 
 
-1. Launch the **Windows 10 IoT Core Dashboard**, go to **My devices** and click the **Open in Device Portal** icon of your device name. If you can't find your device, either your PC or your board is not properly connected to your network.
+1. Normally, you would launch the **Windows 10 IoT Core Dashboard**, go to **My devices** and click the **Open in Device Portal** icon of your device name. **For Build 2016 labs, please open the portal to view the device if you want, and verify that the PC can see it. Then open your browser, and looking at the display on the Pi, use the Ethernet IP address and port 8080 to access it directly.**
 
 	![Windows 10 IoT Core Dashboard](Images/ex1task1-watcher.png?raw=true "Windows 10 IoT Core Dashboard")
 
 	_Windows 10 IoT Core Dashboard_
 
-> **Note:** You can also launch the _Device Portal_ by browsing the _IP address_ and adding **:8080**.
+> **Note:** You can also launch the _Device Portal_ by browsing the _IP address_ and adding **:8080**. This is the required approach for Build 2016 labs in-room.
 
 
 1. In the credentials dialog, use the default username and password. Username: _Administrator_ Password: _p@ssw0rd_
