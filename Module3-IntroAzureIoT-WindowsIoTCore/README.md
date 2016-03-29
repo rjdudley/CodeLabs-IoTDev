@@ -351,7 +351,7 @@ In this task you'll create two Consumer Groups for the website to avoid conflict
 1. Edit the _Web.config_ file and add the corresponding values for the following keys:
 	- **Microsoft.ServiceBus.EventHubDevices**: Event hub-compatible name you copied in the previous step.
 	- **Microsoft.ServiceBus.ConnectionStringDevices**: Event hub-compatible connection string which is composed by the **Event hub-compatible endpoint** and the **_iothubowner_ Shared access policy Primary Key**.
-	- **Microsoft.Storage.ConnectionString**: Regional monitoring storage account configured in the Stream Analytics, in this case use the **storage account name** and **storage account primary key** to complete the endpoint.
+	- **Microsoft.Storage.ConnectionString**: insert the **storage account name** and **storage account primary key** corresponding to your Storage Account to complete the endpoint.
 
 <a name="Ex3Task2"></a>
 #### Task 2 - Deploying to Azure Web Site ####
@@ -431,31 +431,24 @@ In this task, you'll add logic to process the messages received from the IoT Hub
 	````C#
 	public async Task<string> ReceiveMessage()
 	{
-		if (this.HubConnectionInitialized)
+		try
 		{
-			try
-			{
-				var receivedMessage = await this.deviceClient.ReceiveAsync();
+			var receivedMessage = await this.deviceClient.ReceiveAsync();
 
-				if (receivedMessage != null)
-				{
-					var messageData = Encoding.ASCII.GetString(receivedMessage.GetBytes());
-					this.deviceClient.CompleteAsync(receivedMessage);
-					return messageData;
-				}
-				else
-				{
-					return string.Empty;
-				}
-			}
-			catch (Exception e)
+			if (receivedMessage != null)
 			{
-				Debug.WriteLine("Exception when receiving message:" + e.Message);
+				var messageData = Encoding.ASCII.GetString(receivedMessage.GetBytes());
+				this.deviceClient.CompleteAsync(receivedMessage);
+				return messageData;
+			}
+			else
+			{
 				return string.Empty;
 			}
 		}
-		else
+		catch (Exception e)
 		{
+			Debug.WriteLine("Exception when receiving message:" + e.Message);
 			return string.Empty;
 		}
 	}
@@ -474,7 +467,7 @@ In this task, you'll add logic to process the messages received from the IoT Hub
 	````C#
 	private async void CommandsTimer_Tick(object sender, object e)
 	{
-		string message = await ctdHelper.ReceiveMessage();
+		string message = await ReceiveMessage();
 
 		if (message != string.Empty)
 		{
