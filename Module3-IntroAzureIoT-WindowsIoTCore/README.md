@@ -30,7 +30,7 @@ In this module, you'll see how to:
 
 The following is required to complete this module:
 
-- (Ideally) Attended the [Intro to Windows 10 IoT Core](../Module1-IntroWindows10IoTCore) module
+- Attended the [Intro to Windows 10 IoT Core](../Module1-IntroWindows10IoTCore) module, or have used Windows 10 IoT Core previously.
 - Windows 10 with [developer mode enabled][1]
 - [Visual Studio Community 2015][2] with [Update 1][3] or greater
 - [IoT Core Dashboard and Tools][4]
@@ -48,24 +48,7 @@ The following is required to complete this module:
 
 > **Note:** The PCs at Build 2016 are pre-provisioned with all required software. You can take advantage of the [Visual Studio Dev Essentials]( https://www.visualstudio.com/en-us/products/visual-studio-dev-essentials-vs.aspx) subscription in order to get everything you need to build and deploy your app on any platform.
 
-<a name="Setup"></a>
-### Setup ###
-In order to run the exercises in this module, you'll need to set up your environment first.
-
-1. Open Windows Explorer and browse to the module's **Source** folder.
-1. Right-click **Setup.cmd** and select **Run as administrator** to launch the setup process that will configure your environment and install the Visual Studio code snippets for this module.
-1. If the User Account Control dialog box is shown, confirm the action to proceed.
-
-> **Note:** Make sure you've checked all the dependencies for this module before running the setup.
-
-<a name="CodeSnippets"></a>
-### Using the Code Snippets ###
-
-Throughout the module document, you'll be instructed to insert code blocks. For your convenience, most of this code is provided as Visual Studio Code Snippets, which you can access from within Visual Studio 2015 to avoid having to add it manually.
-
-> **Note**: Each exercise is accompanied by a starting solution located in the **Begin** folder of the exercise that allows you to follow each exercise independently of the others. Please be aware that the code snippets that are added during an exercise are missing from these starting solutions and may not work until you have completed the exercise. Inside the source code for an exercise, you'll also find an **End** folder containing a Visual Studio solution with the code that results from completing the steps in the corresponding exercise. You can use these solutions as guidance if you need additional help as you work through this module.
-
----
+All of the GitHub files for this lab are available locally in c:\CodeLabs-IoTDev . Be sure to log out at the end of the session so the files can be reset from GitHub.
 
 <a name="Exercises"></a>
 ## Exercises ##
@@ -83,10 +66,10 @@ Estimated time to complete this module: **60 minutes**
 <a name="Exercise1"></a>
 ### Exercise 1: Connecting and configuring your device ###
 
-In this exercise, you'll setup your Raspberry Pi and GHI FEZ HAT devices.
+In this exercise, you'll verify the setup of your Raspberry Pi and set up the GHI FEZ HAT devices.
 
 <a name="Ex1Task1"></a>
-#### Task 1 - Setting up your Devices ####
+#### Task 1 - Setting up your Device and Verifying the Connection ####
 
 In this task, you'll setup your devices by following these steps:
 
@@ -96,26 +79,12 @@ In this task, you'll setup your devices by following these steps:
 
 	_The FEZ hat connected to the Raspberry Pi device_
 
-1. Get a Windows 10 IoT Core SD Card or download the **Windows 10 IoT Core** image as per the instructions on <http://ms-iot.github.io/content/en-US/win10/RPI.htm>, be sure to follow the steps to mount the image, and run the installer on your development PC. If you already have the OS image on a card, you still need to follow this step to get the IoT Core Watcher and Visual Studio templates on to your PC.
-
-1. Once you have the image on the card, insert the micro SD card in the Raspberry Pi device.
-
-1. Connect the Raspberry Pi to a power supply, optionally a keyboard, mouse and monitor, and use the Ethernet cable to connect your device and your development PC. You can do it by plugging in one end of the spare Ethernet cable to the extra Ethernet port on your PC, and the other end of the cable to the Ethernet port on your IoT Core device. (Do this using an on-board port or an auto-crossover USB->Ethernet interface.)
 
 	![Windows 10 IoT Core with FEZ hat hardware setup](Images/windows-10-iot-core-fez-hat-hardware-setup.png "Windows 10 IoT Core with FEZ hat hardware setup")
 
 	_Windows 10 IoT Core with FEZ hat hardware setup_
 
-1. Wait for the OS to boot.
-
-1. Launch the **Windows 10 IoT Core Dashboard**, go to **My devices** and click the **Open in Device Portal** icon of your device name. If you can't find your device, either your PC or your board is not properly connected to your network.
-
-	![Windows 10 IoT Core Dashboard](Images/ex1task1-watcher.png?raw=true "Windows 10 IoT Core Dashboard")
-
-	_Windows 10 IoT Core Dashboard_
-
-	> **Note:** You can also launch the _Device Portal_ by browsing the _IP address_ and adding **:8080**.
-
+1. Launch the _Device Portal_ by browsing the **Wired Ethernet** _IP address_ of the Raspberry Pi and adding **:8080**.
 
 1. In the credentials dialog, use the default username and password. Username: _Administrator_ Password: _p@ssw0rd_
 
@@ -123,24 +92,11 @@ In this task, you'll setup your devices by following these steps:
 
 	_Device Portal credentials_
 
-1. **Windows Device Portal** should launch and display the web management home screen!
+1. You will see the web management (WebB) home screen.
 
 	![Windows Device Portal](Images/ex1task1-device-portal.png?raw=true "Windows Device Portal")
 
 	_Windows Device Portal_
-
-1. In the **Windows Device Portal** home page, enter a new device name in the **Preferences** section.
-
-	![Change your device name](Images/ex1task1-device-portal-rename.png?raw=true "Change your device name")
-
-	_Change your device name_
-
-	>**Note:** Additionally, you can change the default password with a new one.
-
-<a name="Ex1Task2"></a>
-#### Task 2 - Using the web interface to configure WiFi  ####
-
-In this task, you'll use the Device Portal to connect to a WiFi network.
 
 1. Click **Networking** in the left-hand pane.
 
@@ -148,17 +104,7 @@ In this task, you'll use the Device Portal to connect to a WiFi network.
 
 	_Networking page_
 
-1. Under **Available networks**, select network you would like to connect to and supply the connection credentials.
-
-	![Available networks](Images/ex1task2-device-portal-available-networks.png?raw=true "Available networks")
-
-	_Available networks_
-
-1. Click **Connect** to initiate the connection. If the device connects successfully, you'll see a checkmark next to this WiFi. Device will connect to this WiFi automatically on every startup.
-
-	![Connect to WiFi](Images/ex1task2-connect-wifi.png?raw=true "Connect to WiFi")
-
-	_Connect to WiFi_
+1. On the networking screen, verify that IoT-Lab is the selected (checked) network profile. This network has been specifically configured to allow through the AMQP/AMQPS traffic required for communicating to Azure.
 
 <a name="Exercise2"></a>
 ### Exercise 2: Sending telemetry data to Azure IoT Hub ###
@@ -238,23 +184,17 @@ This task uses an existing Universal application that will be deployed to your R
 
 1. Add the following _using_ statements at the top of the **MainPage.xaml.cs** file:
 
-	(Code Snippet - _AzureIoT - Using_)
-
 	````C#
 	using Microsoft.Azure.Devices.Client;
 	````
 
 1. Add the following field to the **MainPage** class, replace the placeholder value with the **device connection string** you've created in the previous task (note that the curly braces { } are _NOT_ part of the connection string and should be _removed_ when you paste in your connection string):
 
-	(Code Snippet - _AzureIoT - DeviceClientConn_)
-
 	````C#
 	private DeviceClient deviceClient = DeviceClient.CreateFromConnectionString("{device connection string}");
 	````
 
 1. Add the following method to the **MainPage** class to create and send messages to the IoT hub. Resolve the missing using statements.
-
-	(Code Snippet - _AzureIoT - SendMessage_)
 
 	````C#
 	public async void SendMessage(string message)
@@ -275,8 +215,6 @@ This task uses an existing Universal application that will be deployed to your R
 	````
 
 1. Add the following code to the **Timer_Tick** method to send a message with the temperature and another with the light level:
-
-	(Code Snippet - _AzureIoT - TempAndLightMessages_)
 
 	````C#
 	// send data to IoT Hub
@@ -332,7 +270,7 @@ In order to allow several consumer applications to read data from the IoT Hub in
 
 In this task you'll create two Consumer Groups for the website to avoid conflicts with other consumers.
 
-> **Note:** In order to use the EventProcessorHost class, you must have an Azure Storage account to enable the EventProcessorHost to record checkpoint information. You can use an existing storage account, or follow the instructions in [About Azure Storage](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#create-a-storage-account) to create a new one. Make a note of the storage account connection string.
+> **Important Note:** In order to use the EventProcessorHost class, for Build 2016, you must create an Azure Storage account to enable the EventProcessorHost to record checkpoint information. Please follow the instructions in [About Azure Storage](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#create-a-storage-account) to create a new one. Make a note of the storage account connection string because you'll need it later.
 
 1. Open the Azure Portal (https://portal.azure.com/), and select the IoT Hub you created.
 
@@ -355,6 +293,8 @@ In this task you'll create two Consumer Groups for the website to avoid conflict
 	- **Microsoft.ServiceBus.ConnectionStringDevices**: Event hub-compatible connection string which is composed by the **Event hub-compatible endpoint** and the **_iothubowner_ Shared access policy Primary Key**.
 	- **Microsoft.Storage.ConnectionString**: insert the **storage account name** and **storage account primary key** corresponding to your Storage Account to complete the endpoint.
 
+1. DId you createt the storage account? :)
+2. 
 <a name="Ex3Task2"></a>
 #### Task 2 - Deploying to Azure Web Site ####
 
@@ -428,8 +368,6 @@ In this task, you'll add logic to process the messages received from the IoT Hub
 
 1. Open the Universal app you created before and add the following method to the **MainPage.xaml.cs** file. The _ReceiveAsync_ method returns the received message at the time that it is received by the device. The call to _CompleteAsync()_ notifies IoT Hub that the message has been successfully processed and that it can be safely removed from the device queue. If something happened that prevented the device app from completing the processing of the message, IoT Hub will deliver it again.
 
-	(Code Snippet - _AzureIoT - Ex4-ReceiveMessage_)
-
 	````C#
 	public async Task<string> ReceiveMessage()
 	{
@@ -464,8 +402,6 @@ In this task, you'll add logic to process the messages received from the IoT Hub
 
 1. Add the following method, which will be in charge of processing the commands. 	It reads the message received, and according to the text of the command, it set the value of the _hat.D2.Color_ attribute to change the color of the FEZ HAT's LED D2. When the "OFF" command is received the _TurnOff()_ method is called, which turns the LED off.
 
-	(Code Snippet - _AzureIoT - Ex4-CommandsTimer_Tick_)
-
 	````C#
 	private async void CommandsTimer_Tick(object sender, object e)
 	{
@@ -497,8 +433,6 @@ In this task, you'll add logic to process the messages received from the IoT Hub
 	````
 
 1. Lastly, add the following piece of code to the _SetupHat_ method in order to initialize the timer used to poll for messages.
-
-	(Code Snippet - _AzureIoT - Ex4-ReceiveTimer_)
 
 	````C#
 	//setup receive timer
