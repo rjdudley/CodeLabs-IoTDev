@@ -176,7 +176,7 @@ This task uses an existing Universal application that will be deployed to your R
 
 1. In **Solution Explorer**, right-click the **IoTWorkshop** project, and then click **Manage NuGet Packages**.
 
-1. In the **NuGet Package Manager** window, click **Browse** and search for **Microsoft Azure Devices**, click **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use.
+1. In the **NuGet Package Manager** window, click **Browse** and search for **Microsoft Azure Devices** and **PCL Crypto**, click **Install** to install the **Microsoft.Azure.Devices.Client** and **PCLCrypto** packages, and accept the terms of use.
 
     This downloads, installs, and adds a reference to the [Microsoft Azure IoT Service](https://www.nuget.org/packages/Microsoft.Azure.Devices/) SDK NuGet package.
 
