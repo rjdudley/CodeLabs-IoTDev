@@ -12,8 +12,6 @@
 
 In this module you will use a Raspberry Pi device with [Windows 10 Iot Core](http://ms-iot.github.io/content/en-US/Downloads.htm) and a [FEZ HAT](https://www.ghielectronics.com/catalog/product/500) sensor hat. Using a Windows 10 Universal Application, the sensors get the raw data and format it into a JSON string. That string is then shuttled off to the [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/), where it gathers the data and is then displayed in an Azure website. Finally, you'll see how to send cloud-to-device messages to your device to command it.
 
-> **Note:** If you do not want to use the Rapsberry Pi, Module 2 is this same lab, but using simulated data on a Windows 10 UWP app on the PC.
-
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -293,8 +291,8 @@ In this task you'll create two Consumer Groups for the website to avoid conflict
 	- **Microsoft.ServiceBus.ConnectionStringDevices**: Event hub-compatible connection string which is composed by the **Event hub-compatible endpoint** and the **_iothubowner_ Shared access policy Primary Key**.
 	- **Microsoft.Storage.ConnectionString**: insert the **storage account name** and **storage account primary key** corresponding to your Storage Account to complete the endpoint.
 
-1. DId you createt the storage account? :)
-2. 
+1. Did you create the storage account? :)
+
 <a name="Ex3Task2"></a>
 #### Task 2 - Deploying to Azure Web Site ####
 
@@ -442,7 +440,7 @@ In this task, you'll add logic to process the messages received from the IoT Hub
 	this.commandsTimer.Start();
 	````
 
-	> **Note:** The recommended interval for HTTP/1 message polling is 25 minutes. For debugging and demostration purposes a 1 minute polling interval is fine (you can use an even smaller interval for testing), but bear it in mind for production development. Check this [article](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/) for guidance. When AMQP becomes available for the IoT Hub SDK using UWP apps a different approach can be taken for message processing, since AMQP supports server push when receiving cloud-to-device messages, and it enables immediate pushes of messages from IoT Hub to the device. The following [article](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-csharp-csharp-c2d/) explains how to handle cloud-to-device messages using AMQP.
+	> **Note:** The recommended interval for HTTP/1 message polling is 25 minutes. For debugging and demonstration purposes a 1 minute polling interval is fine (you can use an even smaller interval for testing), but bear it in mind for production development. Check this [article](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/) for guidance. When AMQP becomes available for the IoT Hub SDK using UWP apps a different approach can be taken for message processing, since AMQP supports server push when receiving cloud-to-device messages, and it enables immediate pushes of messages from IoT Hub to the device. The following [article](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-csharp-csharp-c2d/) explains how to handle cloud-to-device messages using AMQP.
 
 <a name="Ex4Task2"></a>
 #### Task 2 - Processing IoT Hub received messages ####
@@ -479,4 +477,4 @@ By completing this module, you should have:
 
 Build attendees, please submit a quick evaluation for this lab:
 
-[](Images/L714-R1.png)
+![](Images/L714-R1.png)
