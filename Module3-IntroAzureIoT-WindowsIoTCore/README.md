@@ -33,6 +33,7 @@ The following is required to complete this module:
 - [Visual Studio Community 2015][2] with [Update 1][3] or greater
 - [IoT Core Dashboard and Tools][4]
 - [Azure Device Explorer][7].
+-  ** [Direct Link for Device Explorer](https://github.com/Azure/azure-iot-sdks/releases/download/2016-03-28/SetupDeviceExplorer.msi) **
 - [Raspberry Pi board with Windows IoT Core image][5]
 - [GHI FEZ HAT][6]
 
