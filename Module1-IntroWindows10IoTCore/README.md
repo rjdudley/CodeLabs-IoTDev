@@ -35,6 +35,8 @@ The following is required to complete this module:
 
 All have been included in the room for the Build 2016 Code Labs.
 
+All of the GitHub files for this lab are available locally in c:\CodeLabs-IoTDev . Be sure to log out at the end of the session so the files can be reset from GitHub.
+
 [1]: https://msdn.microsoft.com/library/windows/apps/xaml/dn706236.aspx
 [2]: https://www.visualstudio.com/products/visual-studio-community-vs
 [3]: http://go.microsoft.com/fwlink/?LinkID=691134
