@@ -102,10 +102,8 @@ In this task, you'll connect to your device and update its name through the web 
 
 	_Change your device name_
 
-> **Note:** Additionally, you can change the default password to a new one.
-
 <a name="Ex1Task2"></a>
-#### Task 2 - Using the web interface to verify (or configure WiFi)  ####
+#### Task 2 - Using the web interface to verify (or configure) WiFi  ####
 
 In this task, you'll use the Device Portal to verify the connection to a WiFi network.
 
@@ -118,6 +116,9 @@ In this task, you'll use the Device Portal to verify the connection to a WiFi ne
 	_Networking page_
 
 1. For Build 2016, simply verify that IoT-Lab is the connected and checked WiFi profile.
+
+<a name="Ex1Task3"></a>
+#### Task 3 - Using the web interface to verify (or configure) screen resolution  ####
 
 1. Click **Home** in the left-hand pane.
 
@@ -556,4 +557,4 @@ By completing this module, you should have:
 
 Build attendees, please submit a quick evaluation for this lab:
 
-[](Images/L714-R1.png)
+![](Images/L714-R1.png)
