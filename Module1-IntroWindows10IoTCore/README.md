@@ -452,7 +452,7 @@ The FEZ HAT driver includes methods to get the temperature and light levels. In 
 
 1. Open the **IoTWorkshop.sln** solution file from the **Begin** folder of this exercise or you can continue working with your solution from the previous exercise.
 
-1. In the XAML code (**MainPage.xaml.cs** file), replace the content of the **StackPanel** with the following markup.
+1. In the XAML code (**MainPage.xaml** file), replace the content of the **StackPanel** with the following markup.
 
 	````XML
 	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
