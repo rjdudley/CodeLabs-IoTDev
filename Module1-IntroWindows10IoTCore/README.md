@@ -44,26 +44,6 @@ All have been included in the room for the Build 2016 Code Labs.
 
 > **Note:** You can take advantage of the [Visual Studio Dev Essentials]( https://www.visualstudio.com/en-us/products/visual-studio-dev-essentials-vs.aspx) subscription in order to get everything you need to build and deploy your app on any platform.
 
-<a name="Setup"></a>
-### Setup ###
-In order to run the exercises in this module, you'll need to set up your environment first.
-
-1. Open Windows Explorer and browse to the module's **Source** folder.
-1. Right-click **Setup.cmd** and select **Run as administrator** to launch the setup process that will configure your environment and install the Visual Studio code snippets for this module.
-1. If the User Account Control dialog box is shown, confirm the action to proceed.
-
-> **Note:** Make sure you've checked all the dependencies for this module before running the setup. In the Build 2016 labs, the PCs are pre-configured with the appropriate version of Visual Studio and all related tools.
-
-
-<a name="CodeSnippets"></a>
-### Using the Code Snippets ###
-
-Throughout the module document, you'll be instructed to insert code blocks. For your convenience, some of this code is provided as Visual Studio Code Snippets, which you can access from within Visual Studio 2015 to avoid having to add it manually.
-
-> **Note**: Most Exercises are accompanied by a starting solution located in the **Begin** folder of the exercise that allows you to follow each exercise independently of the others. Please be aware that the code snippets that are added during an exercise are missing from these starting solutions and may not work until you've completed the exercise. Inside the source code for an exercise, you'll also find an **End** folder containing a Visual Studio solution with the code that results from completing the steps in the corresponding exercise. You can use these solutions as guidance if you need additional help as you work through this module.
-
----
-
 <a name="Exercises"></a>
 ## Exercises ##
 This module includes the following exercises:
@@ -80,7 +60,7 @@ Estimated time to complete this module: **60 minutes**
 <a name="Exercise1"></a>
 ### Exercise 1: Connecting and configuring your device ###
 
-The Raspberry Pi will be connected to the development PC through a wired Ethernet connection. This connection is used for deployment and debugging. The WiFi connection will be used for connecting the Raspberry Pi to the Internet. As a result, the Pi will have two IP Addresses. **The address to use for deploying and for otherwise accessing the Pi from your PC is the Wired Ethernet address, not the IoT-Lab WiFi address.**
+The Raspberry Pi 3 will be connected to the development PC through a wired Ethernet connection. This connection is used for deployment and debugging. The WiFi connection will be used for connecting the Raspberry Pi to the Internet. As a result, the Pi will have two IP Addresses. **The address to use for deploying and for otherwise accessing the Pi from your PC is the Wired Ethernet address, not the IoT-Lab WiFi address.**
 
 The **Windows Device Portal** provides basic configuration and device management capabilities, in addition to advanced diagnostic tools to help you troubleshoot and view the real time performance of your Windows IoT Device. **In the IoT Labs at Build, the device explorer shows the WiFi address for the Pi, and so you will not use it directly to configure the device.**
 
@@ -91,7 +71,7 @@ In this exercise, you'll configure your Raspberry Pi board by connecting through
 
 In this task, you'll connect to your device and update its name through the web interface.
 
-> **Note:** For the Build 2016 labs, the device name and WiFi setup was completed before you started this lab. Please follow the steps below to verify and update as necessary. 
+> **Note:** For the Build 2016 labs, the device name and WiFi setup was completed before you started this lab. Please follow the steps below to verify and update as necessary. Do not change the device password. 
 
 1. Normally, you would launch the **Windows 10 IoT Core Dashboard**, go to **My devices** and click the **Open in Device Portal** icon of your device name. **For Build 2016 labs, please open the portal to view the device if you want, and verify that the PC can see it. Then open your browser, and looking at the display on the Pi, use the Ethernet IP address and port 8080 to access it directly.**
 
@@ -123,9 +103,9 @@ In this task, you'll connect to your device and update its name through the web 
 > **Note:** Additionally, you can change the default password to a new one.
 
 <a name="Ex1Task2"></a>
-#### Task 2 - Using the web interface to configure WiFi  ####
+#### Task 2 - Using the web interface to verify (or configure WiFi)  ####
 
-In this task, you'll use the Device Portal to connect to a WiFi network.
+In this task, you'll use the Device Portal to verify the connection to a WiFi network.
 
 > **Note:** For the Build 2016 labs, the device name and WiFi setup was completed before you started this lab. Please follow the steps below to verify and update as necessary. 
 
@@ -135,29 +115,18 @@ In this task, you'll use the Device Portal to connect to a WiFi network.
 
 	_Networking page_
 
-1. Under **Available networks**, select network you would like to connect to and supply the connection credentials.
+1. For Build 2016, simply verify that IoT-Lab is the connected and checked WiFi profile.
 
-	![Available networks](Images/ex1task2-device-portal-available-networks.png?raw=true "Available networks")
+1. Click **Home** in the left-hand pane.
 
-	_Available networks_
-
-        Build Lab Info:
-        SSID: IoT-Lab
-        Key: Windows10-IoT!
-
-1. Click **Connect** to initiate the connection. If the device connects successfully, you'll see a checkmark next to this WiFi. Device will connect to this WiFi automatically on every startup.
-
-	![Connect to WiFi](Images/ex1task2-connect-wifi.png?raw=true "Connect to WiFi")
-
-	_Connect to WiFi_
-
+1. Scroll down to the bottom of the page and verify that the display resolution is set to 1920x1080. This is the easiest way to set the display resolution on a Windows 10 IoT Core device.
 
 <a name="Exercise2"></a>
 ### Exercise 2: Create and deploy "Hello World" UWP ###
 
 A **Universal Windows Platform (UWP)** app has the potential to run on any Windows-powered device like a Raspberry Pi device with Windows 10 IoT core.
 
-**Windows IoT Core** can be configured for either **headed** or **headless** mode. The difference between these two modes is the presence or absence of any form of UI. By default, Windows 10 IoT Core is in headed mode and runs the default startup app which displays system information like the computer name and IP address.
+**Windows IoT Core** can be configured for either **headed** or **headless** mode. The difference between these two modes is the presence or absence of any form of UI. By default, Windows 10 IoT Core is in headed mode and runs the default startup app which displays system information like the computer name, connected devices, and IP addresses.
 
 In this exercise, you'll create and deploy a UWP app for headed mode using a XAML view to display a TextBlock and a button that updates the TextBlock content.
 
@@ -258,12 +227,13 @@ The individual GPIO (General Purpose IO) pins on the Raspberry Pi may be address
 <a name="Ex3Task1"></a>
 #### Task 1 - Programming the Device IO using the GPIO Controller ####
 
-
 Of course, you can hook an LED and resistor directly to one of the pins using a breadboard and jumper wires (in fact, we encourage you to try that during the Open Hack), but to keep things simple, we'll toggle the red LED on the GHI FEZ HAT that is already on your Raspberry Pi.
 
 To do this, we'll create a new project.
 
 1. In Visual Studio 2015, create a new **C# Blank App (Universal Windows)**. Name it anything you want. We named ours **IoTHelloBlinky**.
+
+1. When prompted for the SDK version, set the minimum and max SDK version to 10586.
 
 1. You'll use a ToggleButton to turn the LED on and off. In the MainPage.xaml XAML view, place the following markup inside the opening and closing Grid tags.
 
@@ -350,7 +320,7 @@ In this task, you'll add the **FEZ HAT driver** (using the NuGet package) so you
 
 1. Open the **IoTWorkshop.sln** solution file from the **Begin** folder of this exercise, or you can continue working with your solution from the previous exercise.
 
-1. Install the FEZ HAT drivers using the [GHIElectronics.UWP.Shields.FEZHAT NuGet package](https://www.nuget.org/packages/GHIElectronics.UWP.Shields.FEZHAT/ "FEZ HAT NuGet Package"). To do this, open the **Package Manager Console** (_Tools > NuGet Package Manager > Package Manager Console_) and execute the following command:
+1. Install the FEZ HAT drivers using the [GHIElectronics.UWP.Shields.FEZHAT NuGet package](https://www.nuget.org/packages/GHIElectronics.UWP.Shields.FEZHAT/ "FEZ HAT NuGet Package"). To do this, open the **Package Manager Console** (_Tools > NuGet Package Manager > Package Manager Console_) and execute the following command: (You could instead add the package using the GUI if you desire.)
 
 	````PowerShell
 	PM> Install-Package GHIElectronics.UWP.Shields.FEZHAT
@@ -360,7 +330,7 @@ In this task, you'll add the **FEZ HAT driver** (using the NuGet package) so you
 
 	_Installing the FEZ hat Nuget package_
 
-1. Add a reference to the FEZ HAT library namespace in the _MainPage.xaml.cs_ file:
+1. Next, add a reference to the FEZ HAT library namespace in the _MainPage.xaml.cs_ file:
 
 	````C#
 	using GHIElectronics.UWP.Shields;
@@ -371,8 +341,6 @@ In this task, you'll add the **FEZ HAT driver** (using the NuGet package) so you
   - **timer**: of type **DispatchTimer**, that will be used to turn the led at regular basis.
   - **next**: of type **bool**, will hold the next on/off status for the led.
 
-	(Code Snippet - _Win10IoT - Variables_)
-
 	````C#
 	private FEZHAT hat;
 	private DispatcherTimer timer;
@@ -380,8 +348,6 @@ In this task, you'll add the **FEZ HAT driver** (using the NuGet package) so you
 	````
 
 1. Add the following method to initialize the objects used to handle the communication with the hat. The **Timer_Tick** method will be defined next, and will be executed every 500 ms according to the value hardcoded in the **Interval** property.
-
-	(Code Snippet - _Win10IoT - SetupHat_)
 
 	````C#
 	private async void SetupHat()
@@ -399,8 +365,6 @@ In this task, you'll add the **FEZ HAT driver** (using the NuGet package) so you
 
 1. The following method will be executed every time the timer ticks, and will turn the LED on/off.
 
-	(Code Snippet - _Win10IoT - TimerBlinkLED_)
-
 	````C#
 	private void Timer_Tick(object sender, object e)
 	{
@@ -413,8 +377,6 @@ In this task, you'll add the **FEZ HAT driver** (using the NuGet package) so you
 	The first statement sets the LED to the next on/off status, the second line shows the new status, and the last line switches the next value.
 
 1. Before running the application, add the call to the **SetupHat** method in the **MainPage** constructor:
-
-	(Code Snippet - _Win10IoT - CallSetupHat_)
 
 	<!-- mark:5-6 -->
 	````C#
@@ -440,16 +402,12 @@ In this task, you'll refactor the application to use the button from the FEZ HAT
 
 1. In the **Timer_Tick** method, add the following code to read when the buttons are pressed.
 
-	(Code Snippet - _Win10IoT - PressedButtons_)
-
 	````C#
 	var btn1 = this.hat.IsDIO18Pressed();
 	var btn2 = this.hat.IsDIO22Pressed();
 	````
 
 1. Enclose the code to make the LED blink in an **if** statement to be executed whenever any of the buttons are pressed.
-
-	(Code Snippet - _Win10IoT - IfAnyButton_)
 
 	<!-- mark:6-16 -->
 	````C#
@@ -512,8 +470,6 @@ The FEZ HAT driver includes methods to get the temperature and light levels. In 
 
 1. Add code in the **Timer_Tick** method to read the light level and temperature from the FEZ HAT sensors.
 
-	(Code Snippet - _Win10IoT - ReadLightTempSensors_)
-
 	<!-- mark:5-9 -->
 	````C#
 	private void Timer_Tick(object sender, object e)
@@ -529,8 +485,6 @@ The FEZ HAT driver includes methods to get the temperature and light levels. In 
 	````
 
 1. Display the sensor values in the UI controls.
-
-	(Code Snippet - _Win10IoT - BlinkTimer_)
 
 	<!-- mark:5-11 -->
 	````C#
@@ -564,8 +518,6 @@ In this task, you'll use the 2 RGB LEDs in the FEZ HAT to output light with diff
 
 1. In the **Timer_Tick** method, add the following code to calculate a value from 0 to 255 depending on the light and temperature intensities.
 
-	(Code Snippet - _Win10IoT - LightTempIntensity_)
-
 	````C#
 	var lightIntensity = (byte)(light * 255);
 	var tempIntensity = (byte)(temp * 255 / 60);
@@ -573,8 +525,6 @@ In this task, you'll use the 2 RGB LEDs in the FEZ HAT to output light with diff
     We need a 0-255 range value for one of the RGB components of color.
 
 1. Set the color of the RGB values using the light and temperature intensities. Use the Red component for the temperature, and Blue for light level.
-
-	(Code Snippet - _Win10IoT - RGBLeds_)
 
 	````C#
 	this.hat.D2.Color = new FEZHAT.Color(tempIntensity, 0, 0);
