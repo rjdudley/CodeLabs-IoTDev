@@ -553,3 +553,7 @@ By completing this module, you should have:
 - Toggled an on-board red LED using standard Windows.Devices.Gpio APIs
 - Programmed the input (buttons) and output (LEDs) of a GHI's FEZ HAT topping connected to the Raspberry Pi
 - Read the temperature and light sensors and set the RGB LEDs colors from the FEZ HAT
+
+Build attendees, please submit a quick evaluation for this lab:
+
+[](Images/L714-R1.png)

@@ -142,3 +142,8 @@ Of course, you can use straight GPIO on the Raspberry Pi with Windows 10 IoT Cor
 **[MIDI and Audio Projects and information](AudioAndMIDI.md)**
 
 <a href="#HOLTop"> -- Back to Top -- </a>
+
+
+Build attendees, please submit a quick evaluation for this lab:
+
+[](Images/L714-R1.png)

@@ -475,3 +475,8 @@ By completing this module, you should have:
 - Read the temperature and light sensors and set the RGB LEDs colors from the FEZ HAT.
 - Configured and deployed an **Azure Web site** that consumes and displays the live data from the **Azure IoT Hub**.
 - Sent commands to your IoT devices from **Azure IoT Hub**.
+
+
+Build attendees, please submit a quick evaluation for this lab:
+
+[](Images/L714-R1.png)
