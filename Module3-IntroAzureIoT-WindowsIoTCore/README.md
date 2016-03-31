@@ -269,7 +269,7 @@ In order to allow several consumer applications to read data from the IoT Hub in
 
 In this task you'll create two Consumer Groups for the website to avoid conflicts with other consumers.
 
-> **Important Note:** In order to use the EventProcessorHost class, for Build 2016, you must create an Azure Storage account to enable the EventProcessorHost to record checkpoint information. Please follow the instructions in [About Azure Storage](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#create-a-storage-account) to create a new one. Make a note of the storage account connection string because you'll need it later.
+> **Important Note:** In order to use the EventProcessorHost class, for Build 2016, you must create an Azure Storage account to enable the EventProcessorHost to record checkpoint information. **Please follow the instructions in [About Azure Storage](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#create-a-storage-account) to create a new one. Make a note of the storage account connection string because you'll need it later.**
 
 1. Open the Azure Portal (https://portal.azure.com/), and select the IoT Hub you created.
 
@@ -301,7 +301,7 @@ In this task, you'll deploy the website to an Azure Web Site.
 
 1. In Visual Studio, right-click the project name and select **Publish**.
 
-1. Select **Microsoft Azure App Service**.
+1. Select **Microsoft Azure App Service**. **(Note that the name has been changed to Web App. Please select that.)**
 
 	![Selecting Publish Target](Images/selecting-publish-target.png?raw=true "Selecting Publish target")
 
