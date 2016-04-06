@@ -21,4 +21,5 @@ This is an open hack which runs concurrently with other labs. We have a ton of d
 [Module 4 - Open Hack](Module4-OpenHack/)
 
 ## Build Session Links
-https://channel9.msdn.com/Events/Build/2016/B844
+Developer's Guide to Connecting Devices to Azure IoT https://channel9.msdn.com/Events/Build/2016/B844
+Azure IoT: Complete Cloud Offerings for the IoT Revolution https://channel9.msdn.com/Events/Build/2016/B815
