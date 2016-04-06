@@ -19,3 +19,6 @@ These two labs introduce Microsoft Azure IoT features, including IoT Hub. Module
 This is an open hack which runs concurrently with other labs. We have a ton of devices in the room, as well as reference material for most of them.
 
 [Module 4 - Open Hack](Module4-OpenHack/)
+
+## Build Session Links
+https://channel9.msdn.com/Events/Build/2016/B844
